@@ -131,14 +131,27 @@ let score = 0;
 //generate question form
 function generateQuestion () {
   if (questionNumber < DATA.length) {
-    return `<form><fieldset><legend><h2>${DATA[questionNumber].question}</h2></legend>
-    <label for="answer1"><input type="radio" id="answer1" value="${DATA[questionNumber].answers[0]}" name="answer" required><span>${DATA[questionNumber].answers[0]}</span></label>
-    <label for="answer2"><input type="radio"  id="answer2"
-    value="${DATA[questionNumber].answers[1]}" name="answer" required><span>${DATA[questionNumber].answers[1]}</span></label>
-    <label for="answer3"><input type="radio"  id="answer3"
-    value="${DATA[questionNumber].answers[2]}" name="answer" required><span>${DATA[questionNumber].answers[2]}</span>
+    return `<form><fieldset><legend id="quiz-question"><h2>${DATA[questionNumber].question}</h2></legend>
+    <label for="answer1">
+      <input type="radio" id="answer1" aria-labelledby="quiz-question" 
+      value="${DATA[questionNumber].answers[0]}" name="answer" required>
+      <span>${DATA[questionNumber].answers[0]}</span>
     </label>
-    <label for="answer4"><input type="radio" id="answer4" value="${DATA[questionNumber].answers[3]}" name="answer" required><span>${DATA[questionNumber].answers[3]}</span></label>
+    <label for="answer2">
+      <input type="radio"  id="answer2" aria-labelledby="quiz-question" 
+      value="${DATA[questionNumber].answers[1]}" name="answer" required>
+      <span>${DATA[questionNumber].answers[1]}</span>
+    </label>
+    <label for="answer3">
+      <input type="radio"  id="answer3" aria-labelledby="quiz-question" 
+      value="${DATA[questionNumber].answers[2]}" name="answer" required>
+      <span>${DATA[questionNumber].answers[2]}</span>
+    </label>
+    <label for="answer4">
+      <input type="radio" id="answer4" aria-labelledby="quiz-question" 
+      value="${DATA[questionNumber].answers[3]}" name="answer" required>
+      <span>${DATA[questionNumber].answers[3]}</span>
+    </label>
     <button class="submitButton">SUBMIT</button>
     </fieldset></form>`;
   } else {
